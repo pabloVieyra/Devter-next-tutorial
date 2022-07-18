@@ -1,17 +1,16 @@
-import styles , {globalStyles} from './styles'
+import styles, { globalStyles } from "./styles"
 
-const AppLayout = ({children}) => {
+const AppLayout = ({ children }) => {
   return (
     <>
-     <div>
-      <main>
-      {children}
-      </main>
-    </div>
-    <style jsx>{styles}
-    </style>
-   
-    <style jsx global>{globalStyles}</style>
+      <div>
+        <main>{children}</main>
+      </div>
+      <style jsx>{styles}</style>
+
+      <style jsx global>
+        {globalStyles}
+      </style>
     </>
   )
 }
