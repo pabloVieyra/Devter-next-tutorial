@@ -4,8 +4,10 @@ import { colors } from "../styles/theme"
 import AppLayout from "../components/AppLayout"
 import Button from "../components/Button"
 import GitHub from "../components/Icons/GitHub"
+import Logo from "../components/Icons/Logo"
 
 import { loginWithGitHub, onAuthStateChanged } from "../firebase/client"
+import Avatar from "../components/Avatar"
 
 export default function Home() {
   const [user, setUser] = useState(undefined)
@@ -33,7 +35,7 @@ export default function Home() {
 
       <AppLayout>
         <section>
-          <img src="/Logo.png" alt="Logo"></img>
+          <Logo width="100" />
           <h1> Devter</h1>
           <h2>
             Talk about development <br /> with developers 👨🏽‍💻👩🏽‍💻
@@ -48,8 +50,12 @@ export default function Home() {
             )}
             {user && user.avatar && (
               <div>
-                <img src={user.avatar} />
-                <strong>{user.displayName}</strong>
+                <Avatar
+                  alt={user.displayName}
+                  src={user.avatar}
+                  text={user.displayName}
+                  widthText
+                ></Avatar>
               </div>
             )}
           </div>
@@ -73,13 +79,14 @@ export default function Home() {
           }
 
           h1 {
-            color: ${colors.secondary};
+            color: ${colors.primary};
             font-weigth: 800;
+            font-size: 32px;
             margin-bottom: 16px;
           }
 
           h2 {
-            color: ${colors.primary};
+            color: ${colors.secondary};
             font-size: 21px;
             margin: 0;
           }
